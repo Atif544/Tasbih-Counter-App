@@ -1,12 +1,21 @@
 let count = 0;
-let level = 0;
+let tasbih = 0;
+let goal = 0;
+
+const COUNT_LIMIT = 100;   
+const TASBIH_LIMIT = 10;  
 
 function increase() {
     count++;
 
-    if (count === 50) {
-        level++;
+    if (count === COUNT_LIMIT) {
+        tasbih++;
         count = 0;
+    }
+
+    if (tasbih === TASBIH_LIMIT) {
+        goal++;
+        tasbih = 0;
     }
 
     updateUI();
@@ -21,11 +30,13 @@ function decrease() {
 
 function resetAll() {
     count = 0;
-    level = 0;
+    tasbih = 0;
+    goal = 0;
     updateUI();
 }
 
 function updateUI() {
     document.getElementById("count").innerText = count;
-    document.getElementById("level").innerText = level;
+    document.getElementById("tasbih").innerText = tasbih;
+    document.getElementById("goal").innerText = goal;
 }
